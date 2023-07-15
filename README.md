@@ -17,8 +17,7 @@ called from JVM language via JNI.
 
 ```javascript
 class SearchQueryParser {
-    // This declares that the static `hello` method will be provided
-    // a native library.
+    // This declares that the static `parseQueryToCondition` method will be provided by a native library.
     public static native String parseQueryToCondition(String queryString);
 
     static {
@@ -53,7 +52,7 @@ java -Djava.library.path=${the_full_path_of_the_folder_that_you_move_the_cdylib_
 
 ### 4. result
 
-the value that return from the cdylib binary is json string. it looks like
+the value that return from the cdylib binary is a json string of parsed conditions. it looks like
 ```json
 {"and":[{"keyword":"aaa"},{"or":[{"not":{"keyword":"bbb"}},{"phraseKeyword":"ccc"}]}]}
 ```
@@ -62,7 +61,7 @@ the value that return from the cdylib binary is json string. it looks like
 
 step 1. and 4. are same to the java sample
 
-### 2. create static method to link the cdylib binary
+### 2. create external function to link the cdylib binary
 
 ```javascript
 @file:JvmName("SearchQueryParser")
