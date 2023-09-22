@@ -9,7 +9,15 @@ called from JVM language via JNI.
 
 ### 1. prepare the cdylib for your java project
 
-1. you can download the cdylib binary from [bin/](https://github.com/dimmy82/search-query-parser-cdylib/tree/master/bin) or you can run `cargo build --release`, the cdylib binary will be output to target/release
+1. you can download the cdylib binary from [bin/](https://github.com/dimmy82/search-query-parser-cdylib/tree/master/bin) or you can build it your self
+
+```shell
+# build binary for linux
+./docker-run.sh # the [libsearch_query_parser.so] binary will be output to docker/target/release
+
+# build binary for mac
+cargo build --release # the [libsearch_query_parser.dylib] binary will be output to target/release
+```
 
 2. move the cdylib binary to any path you like 
 
